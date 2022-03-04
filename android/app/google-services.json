@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "770116278455",
+    "project_id": "personal-financial-manag-f872b",
+    "storage_bucket": "personal-financial-manag-f872b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770116278455:android:29a6e9ebd9904258f89532",
+        "android_client_info": {
+          "package_name": "com.pfm.amaka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770116278455-j6lc1nmv21s651705g04od8841s21v19.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGXCi3Ou2M3x60eoz6y94OM-lwUfmitIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770116278455-j6lc1nmv21s651705g04od8841s21v19.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
