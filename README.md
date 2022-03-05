@@ -4,6 +4,8 @@ A Personal finance management App.
 ------------- 
 
 #### This App manages the debt and expense of a user.
+
+#### This App has only been tested on Android and not IOS.
 #### Flutter Version Used :2.10.3
 
 ------------- 
