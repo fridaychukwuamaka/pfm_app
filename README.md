@@ -1,15 +1,14 @@
 # pfm_app
 
-A new Flutter project.
+A Personal finance management App.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This App manages the debt and expense of a user.
 
-A few resources to get you started if this is your first Flutter project:
+A few thinks are must be done if you want to get you run the code:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Your flutter version must be version 2.10.3 or above
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,

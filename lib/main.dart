@@ -7,6 +7,7 @@ import 'package:pfm_app/app/data/model/debt.dart';
 import 'package:pfm_app/app/data/services/notification_service.dart';
 import 'package:pfm_app/app/data/services/permision_service.dart';
 import 'package:pfm_app/app/data/services/twillo_service.dart';
+import 'package:pfm_app/app/helpers/helper.dart';
 import 'package:pfm_app/app/routes/app_pages.dart';
 import 'app/themes/themes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -67,7 +68,9 @@ class _MyAppState extends State<MyApp> {
         var debt = Debt.fromJson(doc.data()!);
 
         await Hive.box<Debt>('debts').add(debt);
-        await TwilloService.sendMessage(debt.debtorPhone, notification.body!);
+        var msg =
+            'Dear ${debt.debtorName}, \nThis message is to remind you about the ${currencyFormat.format(debt.amount)} you borrowed. Please try to pay off this debt today.\nThanks';
+        await TwilloService.sendMessage(debt.debtorPhone, msg);
       }
 
       NotificationService().showNotification(
