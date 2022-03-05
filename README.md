@@ -1,15 +1,48 @@
 # pfm_app
 
 A Personal finance management App.
+------------- 
 
-## Getting Started
+#### This App manages the debt and expense of a user.
+#### Flutter Version Used :2.10.3
 
-This App manages the debt and expense of a user.
+------------- 
 
-A few thinks are must be done if you want to get you run the code:
 
-- Your flutter version must be version 2.10.3 or above
+## Screenshots  
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+  <img src="screenshots/1.png" width="200" />
+  <img src="screenshots/2.png" width="200" /> 
+  <img src="screenshots/3.png" width="200" />
+  <img src="screenshots/4.png" width="200" />
+  <img src="screenshots/5.png" width="200" /> 
+  <img src="screenshots/6.png" width="200" />
+  <img src="screenshots/7.png" width="200" />
+  <img src="screenshots/9.png" width="200" />
+  <img src="screenshots/10.png" width="200" />
+</p>
+
+------------- 
+
+## Screens  
+- Login and Signup Screen 
+- Dahboard Screen  
+- Debts Screen 
+- Expenses Screen 
+- Add Debts Screen 
+- Add Expenses Screen 
+- View and Edit Debts Screen 
+- View and Edit Expenses Screen 
+- Notification Screen
+
+## Funcionality
+- Firebase Authentication
+- Firebase Firestore
+- Biometric
+- Push notification and sms
+- contact importing
+- Cloud functions
+
+
+
