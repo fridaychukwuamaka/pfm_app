@@ -41,7 +41,7 @@ A Personal finance management App.
 - View and Edit Expenses Screen 
 - Notification Screen
 
-## Funcionality
+## Funtionality
 - Firebase Authentication
 - Firebase Firestore
 - Biometric
