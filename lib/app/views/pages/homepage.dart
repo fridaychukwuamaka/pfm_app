@@ -371,13 +371,13 @@ class DashBoard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            currencyFormat1.format(profile.paidDebt),
+                            currencyFormat1.format(profile.unpaidDebt),
                             style: AppTextStyle.subtitle1.copyWith(
                               color: Colors.white,
                             ),
                           ),
                           Text(
-                            'Paid Debt',
+                            'Unpaid Debt',
                             style: AppTextStyle.caption.copyWith(
                               color: Colors.white,
                             ),
@@ -394,13 +394,13 @@ class DashBoard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            currencyFormat1.format(profile.unpaidDebt),
+                            currencyFormat1.format(profile.paidDebt),
                             style: AppTextStyle.subtitle1.copyWith(
                               color: Colors.white,
                             ),
                           ),
                           Text(
-                            'Unpaid Debt',
+                            'Paid Debt',
                             style: AppTextStyle.caption.copyWith(
                               color: Colors.white,
                             ),

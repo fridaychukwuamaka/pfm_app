@@ -13,8 +13,8 @@ class Profile {
 
     return Profile(
       expense: val['expense'] != null ? val['expense'].toDouble() : 0.0,
-      paidDebt:  val['unpaidDebt'] != null ? val['unpaidDebt'].toDouble() : 0.0,
-      unpaidDebt: val['paidDebt'] != null ? val['paidDebt'].toDouble() : 0.0,
+      paidDebt:  val['paidDebt'] != null ? val['paidDebt'].toDouble() : 0.0,
+      unpaidDebt: val['unpaidDebt'] != null ? val['unpaidDebt'].toDouble() : 0.0,
     );
   }
 }
