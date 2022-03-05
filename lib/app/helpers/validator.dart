@@ -49,10 +49,5 @@ class Validator {
     return null;
   }
 
-  static String? imageValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter an image';
-    }
-  }
 
 }

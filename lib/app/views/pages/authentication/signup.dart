@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pfm_app/app/controllers/auth_controller.dart';
 import 'package:pfm_app/app/helpers/validator.dart';
 import 'package:pfm_app/app/themes/themes.dart';
-import 'package:pfm_app/app/views/pages/authentication/login.dart';
 import 'package:pfm_app/app/views/shared/shared.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 

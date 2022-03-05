@@ -34,7 +34,6 @@ class BiometricService extends GetxService {
           Get.offAllNamed(HomePage.route);
         }
       } on PlatformException catch (e) {
-        print(e);
       }
     }
   }

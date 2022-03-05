@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:pfm_app/app/data/model/debt.dart';
 import 'package:pfm_app/app/data/repository/debt_repository.dart';
 import 'package:pfm_app/app/data/services/api_response.dart';
-import 'package:pfm_app/app/data/services/notification_service.dart';
 import 'package:pfm_app/app/helpers/helper.dart';
 import 'package:pfm_app/app/views/pages/views.dart';
 import 'package:pfm_app/app/views/shared/overlays.dart';
@@ -15,8 +14,6 @@ import 'package:pfm_app/app/views/shared/overlays.dart';
 class DebtController extends GetxController {
   final DebtRepository _repo;
   DebtController(this._repo);
-
-  final NotificationService _notificationService = NotificationService();
 
   static Stream<QuerySnapshot> unpaidDebtStream = FirebaseFirestore.instance
       .collection('debts')
@@ -76,7 +73,6 @@ class DebtController extends GetxController {
 
   addDebt(GlobalKey<FormState> form) async {
     if (form.currentState!.validate()) {
-      print(_newDebt.toJson());
       ApiResponse response = await _repo.addDebt(_newDebt.toJson());
       /*  await _notificationService.scheduleReminder(
           _newDebt, response.data as String); */
