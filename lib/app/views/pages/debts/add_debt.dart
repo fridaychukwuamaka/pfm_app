@@ -49,7 +49,7 @@ class AddDebtPage extends GetView<DebtController> {
               PageInput(
                 hint: '',
                 label: 'Amount (${currencyFormat.currencySymbol})',
-                validator: Validator.fullnameValidation,
+                validator: Validator.numberValidation,
                 controller: controller.amount,
                 keyboardType: TextInputType.number,
               ),

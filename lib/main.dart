@@ -6,8 +6,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:pfm_app/app/data/model/debt.dart';
 import 'package:pfm_app/app/data/services/notification_service.dart';
 import 'package:pfm_app/app/data/services/permision_service.dart';
+import 'package:pfm_app/app/data/services/twillo_service.dart';
 import 'package:pfm_app/app/routes/app_pages.dart';
-import 'app/controllers/debt_controller.dart';
 import 'app/themes/themes.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -55,16 +55,21 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     FirebaseMessaging.onMessage.listen((message) async {
       RemoteNotification notification = message.notification!;
-      var payload = message.data['debtId'] as String;
+      String? payload;
+      if (message.data.containsKey('debtId')) {
+        payload = message.data['debtId'];
 
-      var doc = await FirebaseFirestore.instance
-          .collection('debts')
-          .doc(payload)
-          .get();
+        var doc = await FirebaseFirestore.instance
+            .collection('debts')
+            .doc(payload)
+            .get();
 
-      await Hive.box<Debt>('debts').add(Debt.fromJson(doc.data()!));
+        var debt = Debt.fromJson(doc.data()!);
 
-      // await TwilloService.sendMessage('+2348052141841',  notification.body!);
+        await Hive.box<Debt>('debts').add(debt);
+        await TwilloService.sendMessage(debt.debtorPhone, notification.body!);
+      }
+
       NotificationService().showNotification(
         id: notification.hashCode,
         title: notification.title,

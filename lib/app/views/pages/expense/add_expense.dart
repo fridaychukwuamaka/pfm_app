@@ -40,7 +40,7 @@ class AddExpensePage extends GetView<ExpenseController> {
                   label: 'Amount (${currencyFormat.currencySymbol})',
                   controller: controller.amount,
                   keyboardType: TextInputType.number,
-                  validator: Validator.fullnameValidation,
+                  validator: Validator.numberValidation,
                 ),
                 const SizedBox(height: 20),
                 PageInput(

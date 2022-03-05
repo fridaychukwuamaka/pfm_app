@@ -32,16 +32,15 @@ class DebtController extends GetxController {
 
   static DateFormat timeFormat = DateFormat('dd-MM-y');
   TextEditingController amount = TextEditingController();
-  TextEditingController date =
-      TextEditingController(text: timeFormat.format(DateTime.now()));
   TextEditingController remark = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController name = TextEditingController();
   TextEditingController payOffBy = TextEditingController(
-    text: timeFormat.format(
-      DateTime.now().add(const Duration(days: 1)),
-    ),
-  );
+      text: timeFormat.format(
+    DateTime.now().add(const Duration(days: 1)),
+  ));
+  TextEditingController date =
+      TextEditingController(text: timeFormat.format(DateTime.now()));
 
   RxBool editBtn = false.obs;
 
@@ -78,10 +77,10 @@ class DebtController extends GetxController {
   addDebt(GlobalKey<FormState> form) async {
     if (form.currentState!.validate()) {
       print(_newDebt.toJson());
-       ApiResponse response = await _repo.addDebt(_newDebt.toJson());
+      ApiResponse response = await _repo.addDebt(_newDebt.toJson());
       /*  await _notificationService.scheduleReminder(
           _newDebt, response.data as String); */
-         AppOverlay.showInfoDialog(
+      AppOverlay.showInfoDialog(
         title: response.isSuccessful ? 'Success' : 'Failure',
         content: response.message,
       );
@@ -127,8 +126,10 @@ class DebtController extends GetxController {
     amount.clear();
     name.clear();
     phone.clear();
-    date.clear();
-    payOffBy.clear();
     remark.clear();
+    date.text = timeFormat.format(DateTime.now());
+    payOffBy.text = timeFormat.format(
+      DateTime.now().add(const Duration(days: 1)),
+    );
   }
 }

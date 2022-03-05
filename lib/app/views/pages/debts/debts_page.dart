@@ -118,7 +118,7 @@ class DebtLists extends StatelessWidget {
                 expense: false,
                 id: debt.id!,
                 amount:
-                    currencyFormat.format(int.parse(debt.amount)),
+                    currencyFormat.format(double.parse(debt.amount)),
                 other: debt.debtorName,
                 date: DateFormat('dd-MM-y').format(debt.date),
                 remarks: debt.remark,

@@ -96,7 +96,7 @@ class ExpenseController extends GetxController {
   clearControllers() {
     amount.clear();
     remark.clear();
-    date.clear();
+    date.text = timeFormat.format(DateTime.now());
     mode = PaymentMode.values.first;
     category = ExpenseCategory.values.first;
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+import 'package:pfm_app/app/data/model/debt.dart';
 import 'package:pfm_app/app/data/repository/user_repository.dart';
 import 'package:pfm_app/app/data/services/api_response.dart';
 import 'package:pfm_app/app/data/services/my_pref.dart';
@@ -47,8 +49,9 @@ class AuthController extends GetxController {
 
   Future<void> logout() async {
     await _repo.logout();
+    await MyPref.clearBoxes();
+    await Hive.box<Debt>('debts').clear();
     Get.offNamed(LoginPage.route);
-    MyPref.clearBoxes();
   }
 
   Map<String, dynamic> get _payload => {

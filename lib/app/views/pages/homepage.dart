@@ -180,7 +180,7 @@ class HomePage extends StatelessWidget {
                                 expense: false,
                                 id: debt.id!,
                                 amount: currencyFormat
-                                    .format(int.parse(debt.amount)),
+                                    .format(double.parse(debt.amount)),
                                 other: debt.debtorName,
                                 date: DateFormat('dd-MM-y').format(debt.date),
                                 remarks: debt.remark,
@@ -251,7 +251,7 @@ class HomePage extends StatelessWidget {
                                     expense, expenses[index].id),
                                 id: expense.id!,
                                 amount: currencyFormat
-                                    .format(int.parse(expense.amount)),
+                                    .format(double.parse(expense.amount)),
                                 other: expense.category.value,
                                 date:
                                     DateFormat('dd-MM-y').format(expense.date),

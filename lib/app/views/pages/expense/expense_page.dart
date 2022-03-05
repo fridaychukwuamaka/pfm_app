@@ -56,7 +56,7 @@ class ExpensePage extends GetView<ExpenseController> {
                   onPressed: () =>
                       controller.gotoEditExpense(expense, expenses[index].id),
                   id: expense.id!,
-                  amount: currencyFormat.format(int.parse(expense.amount)),
+                  amount: currencyFormat.format(double.parse(expense.amount)),
                   other: expense.category.value,
                   date: DateFormat('dd-MM-y').format(expense.date),
                   remarks: expense.remark,

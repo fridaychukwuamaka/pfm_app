@@ -48,7 +48,7 @@ class EditDebtPage extends GetView<DebtController> {
                   PageInput(
                     hint: '',
                     label: 'Amount (${currencyFormat.currencySymbol})',
-                    validator: Validator.fullnameValidation,
+                  validator: Validator.numberValidation,
                     controller: controller.amount,
                     keyboardType: TextInputType.number,
                     readOnly: !controller.editBtn.value,

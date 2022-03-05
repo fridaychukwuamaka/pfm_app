@@ -47,7 +47,7 @@ class NotificationPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Debt Notification for ${notificaion.debtorName} who borrowed ${currencyFormat.format(double.parse(notificaion.amount))} from you',
+                              'Debt Notification for ${notificaion.debtorName} who borrowed ${currencyFormat.format(int.parse(notificaion.amount))} from you',
                               style: AppTextStyle.bodyText2.copyWith(
                                 fontWeight: FontWeight.w500,
                               ),

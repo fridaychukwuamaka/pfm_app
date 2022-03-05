@@ -36,6 +36,10 @@ class UserRepository {
         email: data['email'],
         password: data['password'],
       );
+      await api.db
+          .collection('profile')
+          .doc(userCredential.user!.uid)
+          .update({'deviceToken': await FirebaseMessaging.instance.getToken()});
       return ApiResponse(
           isSuccessful: true,
           message: 'Welcome back',

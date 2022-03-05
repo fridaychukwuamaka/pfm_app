@@ -70,9 +70,9 @@ exports.updateItemChanges = functions.firestore
       var val = data.amount - previousData.amount;
       var updatedAmount = admin.firestore.FieldValue.increment(Number(val));
 
-       if (collection == "expenses") {
-         v.expense = updatedAmount;
-       }else if (collection == "debts" && data.isPaid) {
+      if (collection == "expenses") {
+        v.expense = updatedAmount;
+      } else if (collection == "debts" && data.isPaid) {
         v.paidDebt = updatedAmount;
       } else if (collection == "debts" && !data.isPaid) {
         v.unpaidDebt = updatedAmount;
@@ -90,14 +90,13 @@ exports.scheduledFunction = functions.pubsub
   .schedule("0 12 * * 1-7")
   .timeZone("Africa/Lagos")
   .onRun((context) => {
-    var today = new Date();
-
+    var beginningDate = Date.now() - 000000000;
+    var beginningDateObject = new Date(beginningDate);
     admin
       .firestore()
       .collection("debts")
-
       .where("isPaid", "==", false)
-      //  .where("payOffBy", "==", Date(today.getFullYear(), today.getMonth(), today.getDate()))
+      .where("payOffBy", "<=", beginningDateObject)
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -107,7 +106,6 @@ exports.scheduledFunction = functions.pubsub
             .doc(doc.data().userId)
             .get()
             .then((e) => {
-              console.log(doc.data().payOffBy);
               const payload = {
                 notification: {
                   title: "Debt Reminder",
@@ -117,6 +115,7 @@ exports.scheduledFunction = functions.pubsub
                   debtId: doc.id,
                 },
               };
+              console.log(doc.data());
               admin.messaging().sendToDevice(e.data().deviceToken, payload);
             });
           console.log(

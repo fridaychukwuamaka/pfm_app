@@ -21,7 +21,7 @@ class EditExpensePage extends GetView<ExpenseController> {
     final id = Get.arguments[1] as String;
     controller.editBtn = false.obs;
     return WillPopScope(
-       onWillPop: () {
+      onWillPop: () {
         controller.clearControllers();
         return Future.value(true);
       },
@@ -51,7 +51,7 @@ class EditExpensePage extends GetView<ExpenseController> {
                     label: 'Amount (${currencyFormat.currencySymbol})',
                     controller: controller.amount,
                     keyboardType: TextInputType.number,
-                    validator: Validator.fullnameValidation,
+                    validator: Validator.numberValidation,
                     readOnly: !controller.editBtn.value,
                   ),
                 ),
