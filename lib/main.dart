@@ -33,12 +33,12 @@ Future<void> _permisions() async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init('MyPref');
   await _initFirebase();
   await Hive.initFlutter();
+  await GetStorage.init('MyPref');
+  await _permisions();
   Hive.registerAdapter(DebtAdapter());
   await Hive.openBox<Debt>('debts');
-  await _permisions();
   runApp(const MyApp());
 }
 
@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.onMessage.listen((message) async {
       RemoteNotification notification = message.notification!;
       String? payload;
+      print(message.data);
       if (message.data.containsKey('debtId')) {
         payload = message.data['debtId'];
 
@@ -69,7 +70,7 @@ class _MyAppState extends State<MyApp> {
 
         await Hive.box<Debt>('debts').add(debt);
         var msg =
-            'Dear ${debt.debtorName}, \nThis message is to remind you about the ${currencyFormat.format(debt.amount)} you borrowed. Please try to pay off this debt today.\nThanks';
+            'Dear ${debt.debtorName}, \nThis message is to remind you about the ${currencyFormat.format(double.parse(debt.amount))} you borrowed. Please try to pay off this debt today.\nThanks';
         await TwilloService.sendMessage(debt.debtorPhone, msg);
       }
 
